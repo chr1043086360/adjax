@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Django ADJAX</title>
+
+    <style>
+      .center, h1, h2 {
+        text-align: center;
+      }
+
+      div.container {
+        white-space: nowrap;
+      }
+
+      div.column {
+        width: 50%;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="center">
+      <img src="image.png" alt="ADJAX"/>
+    </div>
+
+    <hr/>
+
+    <div class="container">
+      <div class="column column-left">
+        <h2>Python</h2>
+
+        <pre>
+
+    # myapp/ajax.py
+
+    from adjax.registry import registry
+    from adjax.utils.types import typed
+
+    MESSAGE = 'Hello {who} and welcome to {where}'
+
+    @registry.register
+    @typed(strict=True)
+    def visit(request, where: str, who: str) -> dict:
+        """Visit the specified lands."""
+
+        return {
+            'who': who,
+            'where': where,
+            'message': MESSAGE.format(who=who, where=where),
+        }
+
+        </pre>
+      </div>
+
+      <div class="column column-right">
+        <h2>Browser (JS)</h2>
+
+        <pre>
+
+    // static/example.js
+
+    ADJAX.apps.myapp.visit(
+        'Vinland', 'Leif Erikson', function (data) {
+            // data {
+            //   who: "Leif Erikson",
+            //   where: "Vinland",
+            //   message: "Hello Leif Erikson (...)"
+            // }
+        });
+
+    ADJAX.apps.myapp.visit(33, 42, function (data) {
+        // data {
+        //   error: true,
+        //   message: "Value 42 of type class (...)"
+        // }
+    });
+
+        </pre>
+      </div>
+    </div>
+
+    <hr/>
+
+    <p class="center">
+      Check out the 
+      <a href="http://github.com/snogaraleal/adjax/">README</a>
+      and the <a href="https://github.com/snogaraleal/adjax/tree/master/example">example</a>,
+      install from <a href="https://pypi.python.org/pypi/django-adjax/">PyPI</a>.
+    </p>
+  </body>
+</html>

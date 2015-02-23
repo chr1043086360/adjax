@@ -1,0 +1,11 @@
+*.pyc
+__pycache__
+.coverage
+django_adjax.egg-info
+build
+dist
+adjax
+example
+setup.py
+MANIFEST.in
+TODO.md
