@@ -55,7 +55,8 @@
     </div>
 
     <p class="center message">
-      ADJAX lets you call Python functions in the server from JS code in the client in a safe way.
+      Lets you call Python functions defined on the server <br/>
+      from JavaScript code in the browser in a safe way.
     </p>
 
     <div class="container">
@@ -64,7 +65,7 @@
 
         <pre>
 
-    # myapp/ajax.py
+    # <b>myapp</b>/ajax.py
 
     from adjax.registry import registry
     from adjax.utils.types import typed
@@ -73,7 +74,7 @@
 
     @registry.register
     @typed(strict=True)
-    def visit(request, where: str, who: str) -> dict:
+    def <b>visit</b>(request, where: str, who: str) -> dict:
         """Visit the specified lands."""
 
         return {
@@ -92,7 +93,7 @@
 
     // static/example.js
 
-    ADJAX.apps.myapp.visit(
+    ADJAX.apps.<b>myapp.visit</b>(
         'Vinland', 'Leif Erikson', function (data) {
             // data {
             //   who: "Leif Erikson",
