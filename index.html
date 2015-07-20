@@ -5,8 +5,28 @@
     <title>Django ADJAX</title>
 
     <style>
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+      html, body {
+        font-family: 'Open Sans';
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background: #AAA;
+      }
+
       .center, h1, h2 {
         text-align: center;
+        font-weight: normal;
+      }
+
+      .message {
+        font-size: 20pt;
+        background-color: #EEE;
+        padding: 10px;
+        margin: 0;
       }
 
       div.container {
@@ -17,6 +37,15 @@
         width: 50%;
         display: inline-block;
       }
+
+      a, a:link, a:visited, a:active {
+        color: #4D70DB;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #364E99;
+      }
     </style>
   </head>
 
@@ -25,13 +54,9 @@
       <img src="image.png" alt="ADJAX"/>
     </div>
 
-    <hr/>
-
-      <p class="center">
-        ADJAX lets you call Python functions in the server from JS code in the client in a safe way.
-      </p>
-
-    <hr/>
+    <p class="center message">
+      ADJAX lets you call Python functions in the server from JS code in the client in a safe way.
+    </p>
 
     <div class="container">
       <div class="column column-left">
@@ -61,7 +86,7 @@
       </div>
 
       <div class="column column-right">
-        <h2>Browser (JS)</h2>
+        <h2>Browser (JavaScript)</h2>
 
         <pre>
 
