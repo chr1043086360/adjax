@@ -55,8 +55,7 @@
     </div>
 
     <p class="center message">
-      Lets you call Python functions defined on the server <br/>
-      from JavaScript code in the browser in a safe way.
+      Lets you safely call Python functions from JavaScript.
     </p>
 
     <div class="container">
@@ -93,20 +92,19 @@
 
     // static/example.js
 
-    ADJAX.apps.<b>myapp.visit</b>(
-        'Vinland', 'Leif Erikson', function (data) {
-            // data {
-            //   who: "Leif Erikson",
-            //   where: "Vinland",
-            //   message: "Hello Leif Erikson (...)"
-            // }
-        });
+    ADJAX.apps.<b>myapp.visit</b>('Vinland', 'Leif', function (data) {
+        data == {
+            who: "Leif",
+            where: "Vinland",
+            message: "Hello Leif and welcome to Vinland"
+        }
+    });
 
     ADJAX.apps.myapp.visit(33, 42, function (data) {
-        // data {
-        //   error: true,
-        //   message: "Value 42 of type class (...)"
-        // }
+        data == {
+            error: true,
+            message: "Value 42 of type class (...)"
+        }
     });
 
         </pre>
